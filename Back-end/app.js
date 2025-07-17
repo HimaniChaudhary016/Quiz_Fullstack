@@ -2,13 +2,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var professorRouter = require('./routes/professor');
+var professorsRouter = require('./routes/professors');
 
 var app = express();
+
+// Enable CORS for cross-origin requests
+app.use(cors());
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -18,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/professor', professorRouter);
+app.use('/professors', professorsRouter);
 
 module.exports = app;
 

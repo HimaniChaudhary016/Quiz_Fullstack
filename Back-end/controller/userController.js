@@ -8,17 +8,21 @@ function getMyNameController(req, res, next) {
 }
 
 async function createUserController(req, res) {
-  const data = {
-    name: 'Rohan',
-    email: 'rohan@mail.com',
-    password: 'password',
-  }
-  
-  const user = new User(data);
+  // Extract user data from request body
+  const { name, email, username, password } = req.body;
+
+  const userData = {
+    name: name,
+    email: email,
+    username: username,
+    password: password,
+  };
+
+  const user = new User(userData);
   await user.save();
-  
+
   res.status(201).json({
-    message: 'User created successfully',
+    message: 'User registered successfully',
     user: user,
   });
 }
