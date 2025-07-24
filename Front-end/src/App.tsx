@@ -1,20 +1,21 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import RegisterForm from "./RegisterForm";
+import HomePage from "./pages/HomePage";
+import AboutUsPage from "./pages/AboutUsPage";
+import Navbar from "./components/Navbar";
+import RegisterPage from "./pages/RegisterPage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
-
   return (
     <>
-      {/* {data.map((professor) => (
-        <ProfessorInfo
-          key={professor.id}
-          name={professor.name}
-          email={professor.email}
-          id={professor.id}
-          username={professor.username}
-        />
-      ))} */}
-      <RegisterForm />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutUsPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
     </>
   );
 }

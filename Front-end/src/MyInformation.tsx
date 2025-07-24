@@ -1,16 +1,20 @@
-import ProfessorInfo from "./ProfessorInfo";
-
-function MyInformation() {
+function MyInformation({
+  id,
+  name,
+  email,
+}: {
+  id: number;
+  name: string;
+  email?: string;
+}) {
   return (
-    <div>
-      <h1>My Information</h1>
-      <ProfessorInfo
-        id={2}
-        name="Himani"
-        email="himani@example.com"
-        username="himani123"
-      />
+    <div className="my-info">
+      <h1 style={{ background: "black", color: "white" }}>Student Information</h1>
+      <p>Id : {id}</p>
+      <p>Name : {name}</p>
+      {email ? <p>Email : {email}</p> : <p>No Email Found</p>}
     </div>
   );
 }
+
 export default MyInformation;
