@@ -21,7 +21,9 @@ function LoginForm() {
 
     axios
       .post("http://localhost:3000/users/login", finalData)
-      .then(() => {
+      .then((response) => {
+        const token = response.data.accessToken;
+        localStorage.setItem("accessToken", token);
         alert("User logged in successfully!");
       })
       .catch((error) => {

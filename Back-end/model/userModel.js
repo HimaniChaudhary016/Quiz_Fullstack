@@ -13,11 +13,12 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
+    select: false,
   },
   role: {
     type: String,
-    enum: ["student", "admin"],
-    default: "student",
+    enum: ["professional", "admin"],
+    default: "professional",
   },
 });
 

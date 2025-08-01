@@ -25,12 +25,9 @@ main().catch((err) => console.log(err));
 
 async function main() {
   await mongoose
-    .connect(
-      "mongodb+srv://Himani:Himani1234@professor.nv2k8zv.mongodb.net/",
-      {
-        dbName: "professor_database",
-      }
-    )
+    .connect(process.env.MONGO_URI, {
+      dbName: "professor_database",
+    })
     .then((data) => {
       console.log("Database connected successfully", data.connection.name);
     });
