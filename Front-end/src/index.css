@@ -1,5 +1,10 @@
-.my-info {
-  background: darkblue;
+.my-inav {
+  background: purple;
   padding: 1rem;
 
+}
+
+p,
+input {
+  margin: 5px;
 }

@@ -11,10 +11,6 @@ const questionSetSchema = new mongoose.Schema({
         type: String,
         required: true,
       },
-      correctAnswer: {
-        type: String,
-        required: true,
-      },
       choices: [
         {
           label: {
@@ -24,6 +20,10 @@ const questionSetSchema = new mongoose.Schema({
           text: {
             type: String,
             required: true,
+          },
+          correctAnswer: {
+            type: Boolean,
+            default: false,
           },
         },
       ],

@@ -3,14 +3,11 @@ import { AuthContext, type IAuthContext } from "../App";
 import { useContext } from "react";
 
 function Navbar() {
-  const { isAuth, setAuthState } = useContext<IAuthContext>(AuthContext);
+  const { isAuth } = useContext<IAuthContext>(AuthContext);
 
   const logoutHandler = () => {
     localStorage.removeItem("accessToken");
-    setAuthState((prev) => ({
-      ...prev,
-      isAuth: false,
-    }));
+    window.location.reload();
   };
 
   return (
@@ -21,6 +18,8 @@ function Navbar() {
         {isAuth ? (
           <>
             <NavLink to="/profile">Profile</NavLink>
+            <NavLink to="/questionset/list">QuestionSet</NavLink>
+
             <button onClick={logoutHandler}>Logout</button>
           </>
         ) : (
